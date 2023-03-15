@@ -1,3 +1,5 @@
+import loadMenu from "./menu";
+
 function loadNavbar() {
     const navbar = document.createElement('nav');
     navbar.innerHTML = `

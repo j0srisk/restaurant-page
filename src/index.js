@@ -7,13 +7,10 @@ import loadFooter from './modules/footer';
 
 const content = document.getElementById('content');
 
-function render(page) {
-    content.innerHTML = '';
-    let navbar = loadNavbar();
-    content.appendChild(navbar);
-    const homeLink = navbar.querySelector('#home');
-    const menuLink = navbar.querySelector('#menu');
-    const contactLink = navbar.querySelector('#contact');
+function addListeners() {
+    const homeLink = document.querySelector('#home');
+    const menuLink = document.querySelector('#menu');
+    const contactLink = document.querySelector('#contact');
     homeLink.addEventListener('click', (event) => {
         event.preventDefault();
         console.log('Home link clicked');
@@ -31,6 +28,12 @@ function render(page) {
         console.log('Contact link clicked');
         render(loadContact());
     });
+}
+
+function render(page) {
+    content.innerHTML = '';
+    content.appendChild(loadNavbar());
+    addListeners();
     content.appendChild(page);
     content.appendChild(loadFooter());
 }
